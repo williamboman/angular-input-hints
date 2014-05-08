@@ -1,0 +1,30 @@
+{
+  "name": "angular-input-placeholders",
+  "version": "0.0.1",
+  "authors": [
+    "William Boman <william@redwill.se>"
+  ],
+  "description": "Animates input placeholders to make it look like they are being typed in realtime.",
+  "main": "src/placeholders.js",
+  "dependencies": {
+    "angular": "~1.2.6"
+  },
+  "keywords": [
+    "angularjs",
+    "angular",
+    "input",
+    "placeholder",
+    "placeholders",
+    "animate",
+    "type"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/williamboman/angular-placeholders",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
