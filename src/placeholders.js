@@ -46,10 +46,10 @@
               }
             });
 
-            $scope.Ticker = inputPholders.new();
+            $scope.Ticker = inputPholders.newTicker();
 
             $scope.Ticker.placeholders = $scope.inputPholders.split('|'); 
-            $scope.Ticker.onUpdate = function (newPlaceholderText) {
+            $scope.Ticker.onTick = function (newPlaceholderText) {
               $scope.placeholderText = newPlaceholderText;
             };
             $scope.Ticker.userConfig = cleanedUserConfig;
@@ -91,8 +91,8 @@
                 angular.extend(this.config, this.userConfig);
               }
 
-              if( !this.onUpdate || typeof this.onUpdate !== 'function' ) {
-                throw new TypeError('[wb.inputPholder] This instance of Ticker is missing a valid Ticker.onUpdate callback function.');
+              if( !this.onTick || typeof this.onTick !== 'function' ) {
+                throw new TypeError('[wb.inputPholder] This instance of Ticker is missing a valid Ticker.onTick callback function.');
               }
 
               this.tick();
@@ -139,7 +139,7 @@
 
               this.currentPlaceholderText = this.placeholders[this.currentPlaceholdersIndex].substr(0, this.currentPlaceholderIndex);
 
-              this.onUpdate(this.currentPlaceholderText);
+              this.onTick(this.currentPlaceholderText);
 
               this.timeout = $timeout(function () {
                 _this.tick();
@@ -148,10 +148,10 @@
             getTickTime: function (what) {
               switch( what ) {
                 case 'writing':
-                  return this.config.writeSpeedMs-(Math.random()*config.writeSpeedMs);
+                  return this.config.writeSpeedMs-(Math.random()*this.config.writeSpeedMs);
 
                 case 'deleting':
-                  return this.config.deleteSpeedMs-(Math.random()*config.deleteSpeedMs);
+                  return this.config.deleteSpeedMs-(Math.random()*this.config.deleteSpeedMs);
 
                 case 'beforeDeleting':
                   return this.config.waitBeforeDeleteMs;
@@ -160,13 +160,13 @@
                   return this.config.waitInBetweenMs;
 
                 default:
-                  throw new ReferenceError('Trying to get tick time of a non-existent variable.');
+                  throw new ReferenceError('Trying to get a non-existent tick-time.');
               }
             }
           };
 
           return {
-            new: function () {
+            newTicker: function () {
               return new Ticker();
             }
           };
