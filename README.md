@@ -2,6 +2,7 @@ angular-input-placeholders
 ===================
 
 Animates input placeholders to make it look like they are being typed in realtime.
+![angular-input-placeholders](http://i.imgur.com/a1MEKW5.gif)
 
 ## Install
 ### Bower
