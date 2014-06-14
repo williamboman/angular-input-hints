@@ -1,5 +1,5 @@
 /*
- * angular-placeholders
+ * angular-input-placeholders
  *
  * Animates input placeholders to make it look like they are being typed in realtime.
  *
@@ -21,8 +21,14 @@
           writeSpeedMs: '@inputPholdersWriteSpeed',
           deleteSpeedMs: '@inputPholdersDeleteSpeed'
         },
-        template: '<input placeholder="{{placeholderText}}">',
         replace: true,
+        link: function (scope, element) {
+          scope.Ticker.onTick = function (newPlaceholderText) {
+            element.attr('placeholder', newPlaceholderText);
+          };
+
+          scope.Ticker.init();
+        },
         controller: ['$scope', 'inputPholders',
           function ($scope, inputPholders) {
             var userConfig = {
@@ -48,13 +54,8 @@
 
             $scope.Ticker = inputPholders.newTicker();
 
-            $scope.Ticker.placeholders = $scope.inputPholders.split('|'); 
-            $scope.Ticker.onTick = function (newPlaceholderText) {
-              $scope.placeholderText = newPlaceholderText;
-            };
+            $scope.Ticker.placeholders = $scope.inputPholders.split('|');
             $scope.Ticker.userConfig = cleanedUserConfig;
-
-            $scope.Ticker.init();
           }
         ]
       };
