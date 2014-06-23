@@ -54,10 +54,10 @@ To change these values for just one element, you can do like this;
 ```html
 <input type="text"
   input-pholders="Lorem Ipsum.."
-  input-pholders-wait-before-deleting="1000"
-  input-pholders-wait-in-between="50"
-  input-pholders-write-speed="30"
-  input-pholders-delete-speed="10" />
+  input-pholders-wait-before-deleting="2000"
+  input-pholders-wait-in-between="300"
+  input-pholders-write-speed="100"
+  input-pholders-delete-speed="60">
 ```
 
 To change the default config values permanently, you can utilize the `inputPholdersProvider` in an Angular config-block, like so;
@@ -65,10 +65,10 @@ To change the default config values permanently, you can utilize the `inputPhold
 angular.module('yourApp',  [..., 'wb.inputPholders'])
   // Immediately after registering your Angular module, change the config values.
   .config(function (inputPholdersProvider) {
-    inputPholdersProvider.config.waitBeforeDeleteMs = 1000;
-    inputPholdersProvider.config.waitInBetweenMs = 500;
-    inputPholdersProvider.config.writeSpeedMs = 120;
-    inputPholdersProvider.config.deleteSpeedMs = 80;
+    inputPholdersProvider.config.waitBeforeDeleteMs = 2000;
+    inputPholdersProvider.config.waitInBetweenMs = 300;
+    inputPholdersProvider.config.writeSpeedMs = 100;
+    inputPholdersProvider.config.deleteSpeedMs = 60;
   });
 ```
 
