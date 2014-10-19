@@ -4,9 +4,9 @@
     "William Boman <william@redwill.se>"
   ],
   "description": "Animates input placeholders to make it look like they are being typed in realtime.",
-  "main": "src/placeholders.js",
+  "main": "dist/placeholders.min.js",
   "dependencies": {
-    "angular": "~1.2.6"
+    "angular": ">=1.2"
   },
   "keywords": [
     "angularjs",
