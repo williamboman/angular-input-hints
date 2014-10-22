@@ -7,12 +7,15 @@
     "email": "william@redwill.se",
     "url": "http://william.redwill.se"
   },
-  "dependencies": {
-    "angular": "~1.2.6"
-  },
   "devDependencies": {
     "grunt": "^0.4.5",
+    "grunt-banner": "^0.2.3",
+    "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-uglify": "^0.5.0",
+    "grunt-karma": "^0.8.3",
+    "karma": "^0.12.16",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5",
     "load-grunt-tasks": "^0.5.0"
   },
   "keywords": [
@@ -25,5 +28,5 @@
     "type"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/williamboman/angular-placeholders",
+  "homepage": "https://github.com/williamboman/angular-placeholders"
 }

@@ -1,31 +1,88 @@
-'use strict';
+/*
+	angular-input-placeholders v0.0.2
+	https://github.com/williamboman/angular-placeholders
 
-angular.module('wb.inputPholders')
-  .provider('inputPholders', function () {
+	Copyright (c) 2014 William Boman <william@redwill.se>
+
+	License: MIT (https://github.com/williamboman/angular-placeholders/blob/master/LICENSE)
+*/
+
+
+(function (angular) {
+  'use strict';
+angular.module('wb.inputHinter', [
+  'wb.inputHinter.service',
+  'wb.inputHinter.directive'
+]);
+
+angular
+  .module('wb.inputHinter.directive', [])
+
+  .directive('inputHinter', ['inputHinter',
+    function (inputHinter) {
+      return {
+        restrict: 'A',
+        link: function (scope, element, attr) {
+          var userConfig = {
+            waitBeforeDeleteMs: attr.waitBeforeDeleteMs,
+            waitInBetweenMs: attr.waitInBetweenMs,
+            writeSpeedMs: attr.writeSpeedMs,
+            deleteSpeedMs: attr.deleteSpeedMs,
+            delimiter: attr.delimiter
+          };
+
+          // Unset non-existing config values.
+          angular.forEach(userConfig, function (key, val) {
+            if( typeof val === 'undefined' ) {
+              delete userConfig[key];
+            }
+          });
+
+          var ticker = new inputHinter(userConfig);
+
+          ticker.placeholders = attr.inputHinter.split('|');
+
+          ticker.onTick = function (newPlaceholderText) {
+            element.attr('placeholder', newPlaceholderText);
+          };
+
+          scope.Ticker.init();
+        }
+      };
+    }
+  ]);
+
+angular
+  .module('wb.inputHinter.service', [])
+
+  .provider('inputHinter', function () {
     var config = this.config = {
       waitBeforeDeleteMs: 2000,
       waitInBetweenMs: 300,
       writeSpeedMs: 100,
-      deleteSpeedMs: 60
+      deleteSpeedMs: 60,
+      delimiter: '|'
     };
 
     this.$get = ['$timeout',
       function ($timeout) {
 
-        function Ticker() {
+        function Ticker(userConfig) {
+          userConfig = userConfig || {};
           this.currentPlaceholderText = '';
           this.currentPlaceholdersIndex = 0;
           this.currentPlaceholderIndex = 0;
           this.isDeleting = false;
           this.timeout = undefined;
 
-          this.config = config;
+          this.config = angular.copy(config);
+          angular.extend(this.config, userConfig);
         }
 
         Ticker.prototype = {
           init: function () {
             if( !this.placeholders ) {
-              throw new TypeError('[wb.inputPholder] This instance of Ticker is missing Ticker.placeholders property.');
+              throw new TypeError('[wb.inputHinter] This instance of Ticker is missing Ticker.placeholders property.');
             }
 
             if( this.userConfig ) {
@@ -33,7 +90,7 @@ angular.module('wb.inputPholders')
             }
 
             if( !this.onTick || typeof this.onTick !== 'function' ) {
-              throw new TypeError('[wb.inputPholder] This instance of Ticker is missing a valid Ticker.onTick callback function.');
+              throw new TypeError('[wb.inputHinter] This instance of Ticker is missing a valid Ticker.onTick callback function.');
             }
 
             this.tick();
@@ -110,3 +167,4 @@ angular.module('wb.inputPholders')
       }
     ];
   });
+})(window.angular);

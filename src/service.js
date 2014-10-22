@@ -1,5 +1,3 @@
-'use strict';
-
 angular
   .module('wb.inputHinter.service', [])
 
