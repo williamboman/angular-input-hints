@@ -7,10 +7,10 @@ angular
         restrict: 'A',
         link: function (scope, element, attr) {
           var userConfig = {
-            waitBeforeDeleteMs: attr.waitBeforeDeleteMs,
-            waitInBetweenMs: attr.waitInBetweenMs,
-            writeSpeedMs: attr.writeSpeedMs,
-            deleteSpeedMs: attr.deleteSpeedMs,
+            waitBeforeDeleteMs: attr.waitBeforeDeleting || attr.waitBeforeDelete,
+            waitInBetweenMs: attr.waitInBetween,
+            writeSpeedMs: attr.writeSpeed,
+            deleteSpeedMs: attr.deleteSpeed,
             delimiter: attr.delimiter
           };
 
