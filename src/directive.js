@@ -23,7 +23,7 @@ angular
 
           var ticker = new inputHints(userConfig);
 
-          ticker.placeholders = attr.inputHinter.split('|');
+          ticker.placeholders = attr.inputHints;
 
           ticker.onTick = function (newPlaceholderText) {
             element.attr('placeholder', newPlaceholderText);

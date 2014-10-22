@@ -30,6 +30,7 @@ angular
             if( !this.placeholders ) {
               throw new TypeError('[wb.inputHints] This instance of Ticker is missing Ticker.placeholders property.');
             }
+            this.placeholders = this.placeholders.split(this.config.delimiter);
 
             if( this.userConfig ) {
               angular.extend(this.config, this.userConfig);
