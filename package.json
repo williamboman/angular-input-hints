@@ -1,5 +1,5 @@
 {
-  "name": "angular-input-hinter",
+  "name": "angular-input-hints",
   "description": "Animates input placeholders to make it look like they are being typed in realtime.",
   "version": "1.0.0",
   "author": {
@@ -24,11 +24,11 @@
     "input",
     "placeholder",
     "placeholders",
-    "hinter",
+    "hints",
     "hint",
     "animate",
     "type"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/williamboman/angular-input-hinter"
+  "homepage": "https://github.com/williamboman/angular-input-hints"
 }

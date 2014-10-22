@@ -1,4 +1,4 @@
-![angular-input-hinter](angular-input-hinter.gif)
+![angular-input-hints](angular-input-hints.gif)
 
 *Animates input placeholders to make it look like they are being typed in realtime.*
 
@@ -8,23 +8,23 @@
 ## Install
 ### Bower
 ```bash
-$ bower install angular-input-hinter --save
+$ bower install angular-input-hints --save
 ```
 ### Download
-[Minified version - 2.89 KB](https://github.com/williamboman/angular-input-hinter/releases/download/v1.0/angular-input-hinter.min.js)
+[Minified version - 2.89 KB](https://github.com/williamboman/angular-input-hints/releases/download/v1.0/angular-input-hints.min.js)
 
-[Regular version - 5.08 KB](https://github.com/williamboman/angular-input-hinter/releases/download/v1.0/angular-input-hinter.js)
+[Regular version - 5.08 KB](https://github.com/williamboman/angular-input-hints/releases/download/v1.0/angular-input-hints.js)
 
 Then simply just include the JavaScript file in your document!
 
 ## Usage
-To use this Angular module, add `wb.inputHinter` as a dependency in your Angular module.
+To use this Angular module, add `wb.inputHints` as a dependency in your Angular module.
 ```js
-angular.module('yourApp', [..., 'wb.inputHinter']);
+angular.module('yourApp', [..., 'wb.inputHints']);
 ```
 To actually use it;
 ```html
-<input input-hinter="Your first placeholder!|Your second placeholder.|And so on..">
+<input input-hints="Your first placeholder!|Your second placeholder.|And so on..">
 ```
 
 **Of course, you can add any other attribute to the input elements as you would do normally.**
@@ -53,22 +53,22 @@ You can change these configuration values either specifically for just one eleme
 To change these values for just one element, you can do like this;
 ```html
 <input type="text"
-  input-hinter="Lorem Ipsum.."
+  input-hints="Lorem Ipsum.."
   wait-before-deleting="2000"
   wait-in-between="300"
   write-speed="100"
   delete-speed="60">
 ```
 
-To change the default config values permanently, you can utilize the `inputHinterProvider` in an Angular config-block, like so;
+To change the default config values permanently, you can utilize the `inputHintsProvider` in an Angular config-block, like so;
 ```js
-angular.module('yourApp',  [..., 'wb.inputHinter'])
+angular.module('yourApp',  [..., 'wb.inputHints'])
   // Immediately after registering your Angular module, change the config values.
-  .config(function (inputHinterProvider) {
-    inputHinterProvider.config.waitBeforeDeleteMs = 2000;
-    inputHinterProvider.config.waitInBetweenMs = 300;
-    inputHinterProvider.config.writeSpeedMs = 100;
-    inputHinterProvider.config.deleteSpeedMs = 60;
+  .config(function (inputHintsProvider) {
+    inputHintsProvider.config.waitBeforeDeleteMs = 2000;
+    inputHintsProvider.config.waitInBetweenMs = 300;
+    inputHintsProvider.config.writeSpeedMs = 100;
+    inputHintsProvider.config.deleteSpeedMs = 60;
   });
 ```
 

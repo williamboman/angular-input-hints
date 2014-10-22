@@ -1,25 +1,25 @@
 /*
-	angular-input-hinter v1.0.0
-	https://github.com/williamboman/angular-input-hinter
+	angular-input-hints v1.0.0
+	https://github.com/williamboman/angular-input-hints
 
 	Copyright (c) 2014 William Boman <william@redwill.se>
 
-	License: MIT (https://github.com/williamboman/angular-input-hinter/blob/master/LICENSE)
+	License: MIT (https://github.com/williamboman/angular-input-hints/blob/master/LICENSE)
 */
 
 
 (function (angular) {
   'use strict';
-angular.module('wb.inputHinter', [
-  'wb.inputHinter.service',
-  'wb.inputHinter.directive'
+angular.module('wb.inputHints', [
+  'wb.inputHints.service',
+  'wb.inputHints.directive'
 ]);
 
 angular
-  .module('wb.inputHinter.directive', [])
+  .module('wb.inputHints.directive', [])
 
-  .directive('inputHinter', ['inputHinter',
-    function (inputHinter) {
+  .directive('inputHints', ['inputHints',
+    function (inputHints) {
       return {
         restrict: 'A',
         link: function (scope, element, attr) {
@@ -38,9 +38,9 @@ angular
             }
           });
 
-          var ticker = new inputHinter(userConfig);
+          var ticker = new inputHints(userConfig);
 
-          ticker.placeholders = attr.inputHinter.split('|');
+          ticker.placeholders = attr.inputHints;
 
           ticker.onTick = function (newPlaceholderText) {
             element.attr('placeholder', newPlaceholderText);
@@ -53,9 +53,9 @@ angular
   ]);
 
 angular
-  .module('wb.inputHinter.service', [])
+  .module('wb.inputHints.service', [])
 
-  .provider('inputHinter', function () {
+  .provider('inputHints', function () {
     var config = this.config = {
       waitBeforeDeleteMs: 2000,
       waitInBetweenMs: 300,
@@ -82,15 +82,22 @@ angular
         Ticker.prototype = {
           init: function () {
             if( !this.placeholders ) {
-              throw new TypeError('[wb.inputHinter] This instance of Ticker is missing Ticker.placeholders property.');
+              throw new TypeError('[wb.inputHints] This instance of Ticker is missing Ticker.placeholders property.');
             }
+
+            console.log(this.config.delimiter);
+
+  console.log(this.placeholders);
+            this.placeholders = this.placeholders.split(this.config.delimiter);
+
+            console.log(this.placeholders);
 
             if( this.userConfig ) {
               angular.extend(this.config, this.userConfig);
             }
 
             if( !this.onTick || typeof this.onTick !== 'function' ) {
-              throw new TypeError('[wb.inputHinter] This instance of Ticker is missing a valid Ticker.onTick callback function.');
+              throw new TypeError('[wb.inputHints] This instance of Ticker is missing a valid Ticker.onTick callback function.');
             }
 
             this.tick();

@@ -1,7 +1,7 @@
 angular
-  .module('wb.inputHinter.service', [])
+  .module('wb.inputHints.service', [])
 
-  .provider('inputHinter', function () {
+  .provider('inputHints', function () {
     var config = this.config = {
       waitBeforeDeleteMs: 2000,
       waitInBetweenMs: 300,
@@ -28,7 +28,7 @@ angular
         Ticker.prototype = {
           init: function () {
             if( !this.placeholders ) {
-              throw new TypeError('[wb.inputHinter] This instance of Ticker is missing Ticker.placeholders property.');
+              throw new TypeError('[wb.inputHints] This instance of Ticker is missing Ticker.placeholders property.');
             }
 
             if( this.userConfig ) {
@@ -36,7 +36,7 @@ angular
             }
 
             if( !this.onTick || typeof this.onTick !== 'function' ) {
-              throw new TypeError('[wb.inputHinter] This instance of Ticker is missing a valid Ticker.onTick callback function.');
+              throw new TypeError('[wb.inputHints] This instance of Ticker is missing a valid Ticker.onTick callback function.');
             }
 
             this.tick();

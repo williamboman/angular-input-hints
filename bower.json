@@ -1,11 +1,11 @@
 {
-  "name": "angular-input-hinter",
+  "name": "angular-input-hints",
   "version": "1.0.0",
   "authors": [
     "William Boman <william@redwill.se>"
   ],
   "description": "Animates input placeholders to make it look like they are being typed in realtime.",
-  "main": "dist/angular-input-hinter.min.js",
+  "main": "dist/angular-input-hints.min.js",
   "dependencies": {
     "angular": ">=1.2"
   },
@@ -15,13 +15,13 @@
     "input",
     "placeholder",
     "placeholders",
-    "hinter",
+    "hints",
     "hint",
     "animate",
     "type"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/williamboman/angular-input-hinter",
+  "homepage": "https://github.com/williamboman/angular-input-hints",
   "ignore": [
     "**/.*",
     "node_modules",

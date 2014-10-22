@@ -1,8 +1,8 @@
 angular
-  .module('wb.inputHinter.directive', [])
+  .module('wb.inputHints.directive', [])
 
-  .directive('inputHinter', ['inputHinter',
-    function (inputHinter) {
+  .directive('inputHints', ['inputHints',
+    function (inputHints) {
       return {
         restrict: 'A',
         link: function (scope, element, attr) {
@@ -21,7 +21,7 @@ angular
             }
           });
 
-          var ticker = new inputHinter(userConfig);
+          var ticker = new inputHints(userConfig);
 
           ticker.placeholders = attr.inputHinter.split('|');
 
