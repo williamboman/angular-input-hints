@@ -1,4 +1,4 @@
-![angular-input-hinters](http://i.imgur.com/E6hrOeS.gif)
+![angular-input-hinter](angular-input-hinter.gif)
 
 *Animates input placeholders to make it look like they are being typed in realtime.*
 
@@ -11,7 +11,8 @@
 $ bower install angular-input-hinter --save
 ```
 ### Download
-[You can also download the minified version.]()
+[You can also download the minified version.](https://github.com/williamboman/angular-input-hinter/releases/download/v1.0/angular-input-hinter.min.js)
+[Non-minified version.](https://github.com/williamboman/angular-input-hinter/releases/download/v1.0/angular-input-hinter.js)
 
 Then simply just include the JavaScript file in your document!
 
@@ -24,10 +25,7 @@ To actually use it;
 ```html
 <input input-hinter="Your first placeholder!|Your second placeholder.|And so on..">
 ```
-or
-```html
-<input data-input-hinter="Your first placeholder!|Your second placeholder.|And so on..">
-```
+
 **Of course, you can add any other attribute to the input elements as you would do normally.**
 ### Configuration
 The default config values are;
@@ -54,7 +52,7 @@ You can change these configuration values either specifically for just one eleme
 To change these values for just one element, you can do like this;
 ```html
 <input type="text"
-  input-hinter="Lorem Ipsum..|Foo bar.."
+  input-hinter="Lorem Ipsum.."
   wait-before-deleting="2000"
   wait-in-between="300"
   write-speed="100"
