@@ -11,8 +11,9 @@
 $ bower install angular-input-hinter --save
 ```
 ### Download
-[You can also download the minified version.](https://github.com/williamboman/angular-input-hinter/releases/download/v1.0/angular-input-hinter.min.js)
-[Non-minified version.](https://github.com/williamboman/angular-input-hinter/releases/download/v1.0/angular-input-hinter.js)
+[Minified version - 2.89 KB](https://github.com/williamboman/angular-input-hinter/releases/download/v1.0/angular-input-hinter.min.js)
+
+[Regular version - 5.08 KB](https://github.com/williamboman/angular-input-hinter/releases/download/v1.0/angular-input-hinter.js)
 
 Then simply just include the JavaScript file in your document!
 
