@@ -15,7 +15,7 @@ angular
           };
 
           // Unset non-existing config values.
-          angular.forEach(userConfig, function (key, val) {
+          angular.forEach(userConfig, function (val, key) {
             if( typeof val === 'undefined' ) {
               delete userConfig[key];
             }
@@ -29,7 +29,7 @@ angular
             element.attr('placeholder', newPlaceholderText);
           };
 
-          scope.Ticker.init();
+          ticker.init();
         }
       };
     }
