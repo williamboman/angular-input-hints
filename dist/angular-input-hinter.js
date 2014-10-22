@@ -1,10 +1,10 @@
 /*
-	angular-input-placeholders v0.0.2
-	https://github.com/williamboman/angular-placeholders
+	angular-input-hinter v0.0.2
+	https://github.com/williamboman/angular-input-hinter
 
 	Copyright (c) 2014 William Boman <william@redwill.se>
 
-	License: MIT (https://github.com/williamboman/angular-placeholders/blob/master/LICENSE)
+	License: MIT (https://github.com/williamboman/angular-input-hinter/blob/master/LICENSE)
 */
 
 
@@ -46,7 +46,7 @@ angular
             element.attr('placeholder', newPlaceholderText);
           };
 
-          scope.Ticker.init();
+          ticker.init();
         }
       };
     }

@@ -1,31 +1,32 @@
-angular-input-placeholders
-===================
+![angular-input-hinters](http://i.imgur.com/E6hrOeS.gif)
 
-Animates input placeholders to make it look like they are being typed in realtime.
-![angular-input-placeholders](http://i.imgur.com/a1MEKW5.gif)
+*Animates input placeholders to make it look like they are being typed in realtime.*
 
 ## Dependencies
-- [angular](https://github.com/angular/angular.js) ~1.2.6
+- [angular](https://github.com/angular/angular.js) >=1.2
 
 ## Install
 ### Bower
 ```bash
-$ bower install angular-input-placeholders
+$ bower install angular-input-hinter --save
 ```
+### Download
+[You can also download the minified version.]()
+
 Then simply just include the JavaScript file in your document!
 
 ## Usage
-To use this Angular module, add `wb.inputPholders` as a dependency in your Angular module.
+To use this Angular module, add `wb.inputHinter` as a dependency in your Angular module.
 ```js
-angular.module('yourApp', [..., 'wb.inputPholders']);
+angular.module('yourApp', [..., 'wb.inputHinter']);
 ```
 To actually use it;
 ```html
-<input input-pholders="Your first placeholder!|Your second placeholder.|And so on..">
+<input input-hinter="Your first placeholder!|Your second placeholder.|And so on..">
 ```
 or
 ```html
-<input data-input-pholders="Your first placeholder!|Your second placeholder.|And so on..">
+<input data-input-hinter="Your first placeholder!|Your second placeholder.|And so on..">
 ```
 **Of course, you can add any other attribute to the input elements as you would do normally.**
 ### Configuration
@@ -53,22 +54,22 @@ You can change these configuration values either specifically for just one eleme
 To change these values for just one element, you can do like this;
 ```html
 <input type="text"
-  input-pholders="Lorem Ipsum.."
-  input-pholders-wait-before-deleting="2000"
-  input-pholders-wait-in-between="300"
-  input-pholders-write-speed="100"
-  input-pholders-delete-speed="60">
+  input-hinter="Lorem Ipsum..|Foo bar.."
+  wait-before-deleting="2000"
+  wait-in-between="300"
+  write-speed="100"
+  delete-speed="60">
 ```
 
-To change the default config values permanently, you can utilize the `inputPholdersProvider` in an Angular config-block, like so;
+To change the default config values permanently, you can utilize the `inputHinterProvider` in an Angular config-block, like so;
 ```js
-angular.module('yourApp',  [..., 'wb.inputPholders'])
+angular.module('yourApp',  [..., 'wb.inputHinter'])
   // Immediately after registering your Angular module, change the config values.
-  .config(function (inputPholdersProvider) {
-    inputPholdersProvider.config.waitBeforeDeleteMs = 2000;
-    inputPholdersProvider.config.waitInBetweenMs = 300;
-    inputPholdersProvider.config.writeSpeedMs = 100;
-    inputPholdersProvider.config.deleteSpeedMs = 60;
+  .config(function (inputHinterProvider) {
+    inputHinterProvider.config.waitBeforeDeleteMs = 2000;
+    inputHinterProvider.config.waitInBetweenMs = 300;
+    inputHinterProvider.config.writeSpeedMs = 100;
+    inputHinterProvider.config.deleteSpeedMs = 60;
   });
 ```
 
