@@ -6,14 +6,6 @@ angular
   .directive('inputHinter', function (inputHinter) {
     return {
       restrict: 'A',
-      scope: {
-        inputHinter: '@',
-        waitBeforeDeleteMs: '@waitBeforeDeleting',
-        waitInBetweenMs: '@waitInBetween',
-        writeSpeedMs: '@writeSpeed',
-        deleteSpeedMs: '@deleteSpeed'
-      },
-      replace: true,
       link: function (scope, element, attr) {
         var userConfig = {
           waitBeforeDeleteMs: attr.waitBeforeDeleteMs,
@@ -22,6 +14,13 @@ angular
           deleteSpeedMs: attr.deleteSpeedMs,
           delimiter: attr.delimiter
         };
+
+        // Unset non-existing config values.
+        angular.forEach(userConfig, function (key, val) {
+          if( typeof val === 'undefined' ) {
+            delete userConfig[key];
+          }
+        });
 
         var ticker = new inputHinter(userConfig);
 
@@ -32,15 +31,6 @@ angular
         };
 
         scope.Ticker.init();
-      },
-      controller: ['$scope', 'inputHinter',
-        function ($scope, inputHinter) {
-
-          $scope.Ticker = new inputPholders();
-
-          $scope.Ticker.placeholders = $scope.inputPholders.split('|');
-          $scope.Ticker.userConfig = cleanedUserConfig;
-        }
-      ]
+      }
     };
   });
