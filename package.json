@@ -1,7 +1,7 @@
 {
   "name": "angular-input-hinter",
   "description": "Animates input placeholders to make it look like they are being typed in realtime.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": {
     "name": "William Boman",
     "email": "william@redwill.se",

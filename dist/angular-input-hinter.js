@@ -1,5 +1,5 @@
 /*
-	angular-input-hinter v0.0.2
+	angular-input-hinter v1.0.0
 	https://github.com/williamboman/angular-input-hinter
 
 	Copyright (c) 2014 William Boman <william@redwill.se>
@@ -24,15 +24,15 @@ angular
         restrict: 'A',
         link: function (scope, element, attr) {
           var userConfig = {
-            waitBeforeDeleteMs: attr.waitBeforeDeleteMs,
-            waitInBetweenMs: attr.waitInBetweenMs,
-            writeSpeedMs: attr.writeSpeedMs,
-            deleteSpeedMs: attr.deleteSpeedMs,
+            waitBeforeDeleteMs: attr.waitBeforeDeleting || attr.waitBeforeDelete,
+            waitInBetweenMs: attr.waitInBetween,
+            writeSpeedMs: attr.writeSpeed,
+            deleteSpeedMs: attr.deleteSpeed,
             delimiter: attr.delimiter
           };
 
           // Unset non-existing config values.
-          angular.forEach(userConfig, function (key, val) {
+          angular.forEach(userConfig, function (val, key) {
             if( typeof val === 'undefined' ) {
               delete userConfig[key];
             }
