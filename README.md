@@ -72,6 +72,8 @@ angular.module('yourApp',  [..., 'wb.inputHints'])
   });
 ```
 
+## Tips
+Use the [`selector:placeholder`](http://css-tricks.com/snippets/css/style-placeholder-text/) CSS pseudo-class to style your placeholders!
 
 ## License
 Licensed under the MIT license.
