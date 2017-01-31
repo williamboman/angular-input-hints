@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <div ng-app="app">
+            <div class="container">
+                <div class="row">
+                    <h2>Example input hints</h2>
+                    <div class="form-group">
+                        <input type="text" class="form-control" input-hints="['Enter your username here...', 'Usernames can be 7-20 characters long.']" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" input-hints="myInputHints" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.20/angular.min.js"></script>
+        <script src="../dist/angular-input-hints.js"></script>
+        <script>
+            angular.module('app', ['wb.inputHints']).run(function ($rootScope) {
+                $rootScope.myInputHints = ['It\'s simple.', 'It\'s clear.', 'It\'s customizable.'];
+            });
+        </script>
+    </body>
+</html>
