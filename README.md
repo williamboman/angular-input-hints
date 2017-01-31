@@ -3,14 +3,18 @@
 *Animates input placeholders to make it look like they are being typed in realtime.*
 
 ## Dependencies
+
 - [angular](https://github.com/angular/angular.js) >=1.2
 
 ## Install
+
 ### Bower
+
 ```bash
 $ bower install angular-input-hints --save
 ```
 ### Download
+
 [Minified version - 2.89 KB](https://github.com/williamboman/angular-input-hints/releases/download/v1.0.0/angular-input-hints.min.js)
 
 [Regular version - 5.08 KB](https://github.com/williamboman/angular-input-hints/releases/download/v1.0.0/angular-input-hints.js)
@@ -18,17 +22,23 @@ $ bower install angular-input-hints --save
 Then simply just include the JavaScript file in your document!
 
 ## Usage
+
 To use this Angular module, add `wb.inputHints` as a dependency in your Angular module.
+
 ```js
 angular.module('yourApp', [..., 'wb.inputHints']);
 ```
+
 To actually use it;
+
 ```html
 <input input-hints="Your first placeholder!|Your second placeholder.|And so on..">
 ```
 
 **Of course, you can add any other attribute to the input elements as you would do normally.**
+
 ### Configuration
+
 The default config values are;
 - `waitBeforeDeleteMs` - 2000 ms
 
@@ -55,6 +65,7 @@ The default config values are;
 You can change these configuration values either specifically for just one element, or across the whole application.
 
 To change these values for just one element, you can do like this;
+
 ```html
 <input type="text"
   input-hints="Lorem Ipsum.."
@@ -66,6 +77,7 @@ To change these values for just one element, you can do like this;
 ```
 
 To change the default config values permanently, you can utilize the `inputHintsProvider` in an Angular config-block, like so;
+
 ```js
 angular.module('yourApp',  [..., 'wb.inputHints'])
   // Immediately after registering your Angular module, change the config values.
@@ -74,15 +86,17 @@ angular.module('yourApp',  [..., 'wb.inputHints'])
     inputHintsProvider.config.waitInBetweenMs = 300;
     inputHintsProvider.config.writeSpeedMs = 100;
     inputHintsProvider.config.deleteSpeedMs = 60;
-    inputHintsProvider.config.delimiter = '|';
   });
 ```
 
 ## Tips
+
 Use the [`selector:placeholder`](http://css-tricks.com/snippets/css/style-placeholder-text/) CSS pseudo-class to style your placeholders!
 
 ## License
+
 Licensed under the MIT license.
 
 ## Authors
+
 **William Boman** <william@redwill.se>
