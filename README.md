@@ -55,10 +55,6 @@ The default config values are;
 
   Same as `writeSpeedMs` (see above), but for when deleting characters.
 
-- `delimiter` - `'|'`
-
-  Which character(s) to use as the delimiter/separator when setting up the placeholder strings.
-
 
 ####There are 2 ways of changing these config values.
 
@@ -68,12 +64,11 @@ To change these values for just one element, you can do like this;
 
 ```html
 <input type="text"
-  input-hints="Lorem Ipsum.."
+  input-hints="['Lorem Ipsum...', 'Foo bar baz.']"
   wait-before-deleting="2000"
   wait-in-between="300"
   write-speed="100"
-  delete-speed="60"
-  delimiter="|">
+  delete-speed="60">
 ```
 
 To change the default config values permanently, you can utilize the `inputHintsProvider` in an Angular config-block, like so;

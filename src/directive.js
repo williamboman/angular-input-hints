@@ -1,8 +1,8 @@
 angular
   .module('wb.inputHints.directive', [])
 
-  .directive('inputHints', ['inputHints',
-    function (inputHints) {
+  .directive('inputHints', ['InputHints', '$parse',
+    function (InputHints, $parse) {
       return {
         restrict: 'A',
         link: function (scope, element, attr) {
@@ -10,8 +10,7 @@ angular
             waitBeforeDeleteMs: attr.waitBeforeDeleting || attr.waitBeforeDelete,
             waitInBetweenMs: attr.waitInBetween,
             writeSpeedMs: attr.writeSpeed,
-            deleteSpeedMs: attr.deleteSpeed,
-            delimiter: attr.delimiter
+            deleteSpeedMs: attr.deleteSpeed
           };
 
           // Unset non-existing config values.
@@ -21,9 +20,8 @@ angular
             }
           });
 
-          var ticker = new inputHints(userConfig);
-
-          ticker.placeholders = attr.inputHints;
+          var placeholders = $parse(attr.inputHints)(scope);
+          var ticker = new InputHints(userConfig, placeholders);
 
           ticker.onTick = function (newPlaceholderText) {
             element.attr('placeholder', newPlaceholderText);
