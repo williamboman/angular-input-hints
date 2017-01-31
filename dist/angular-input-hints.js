@@ -2,7 +2,7 @@
 	angular-input-hints v1.0.0
 	https://github.com/williamboman/angular-input-hints
 
-	Copyright (c) 2014 William Boman <william@redwill.se>
+	Copyright (c) 2017 William Boman <william@redwill.se>
 
 	License: MIT (https://github.com/williamboman/angular-input-hints/blob/master/LICENSE)
 */
@@ -18,8 +18,8 @@ angular.module('wb.inputHints', [
 angular
   .module('wb.inputHints.directive', [])
 
-  .directive('inputHints', ['inputHints',
-    function (inputHints) {
+  .directive('inputHints', ['InputHints', '$parse',
+    function (InputHints, $parse) {
       return {
         restrict: 'A',
         link: function (scope, element, attr) {
@@ -27,8 +27,7 @@ angular
             waitBeforeDeleteMs: attr.waitBeforeDeleting || attr.waitBeforeDelete,
             waitInBetweenMs: attr.waitInBetween,
             writeSpeedMs: attr.writeSpeed,
-            deleteSpeedMs: attr.deleteSpeed,
-            delimiter: attr.delimiter
+            deleteSpeedMs: attr.deleteSpeed
           };
 
           // Unset non-existing config values.
@@ -38,9 +37,8 @@ angular
             }
           });
 
-          var ticker = new inputHints(userConfig);
-
-          ticker.placeholders = attr.inputHints;
+          var placeholders = $parse(attr.inputHints)(scope);
+          var ticker = new InputHints(userConfig, placeholders);
 
           ticker.onTick = function (newPlaceholderText) {
             element.attr('placeholder', newPlaceholderText);
@@ -55,25 +53,26 @@ angular
 angular
   .module('wb.inputHints.service', [])
 
-  .provider('inputHints', function () {
+  .provider('InputHints', function () {
     var config = this.config = {
       waitBeforeDeleteMs: 2000,
       waitInBetweenMs: 300,
       writeSpeedMs: 100,
-      deleteSpeedMs: 60,
-      delimiter: '|'
+      deleteSpeedMs: 60
     };
 
     this.$get = ['$timeout',
       function ($timeout) {
 
-        function Ticker(userConfig) {
+        function Ticker(userConfig, placeholders) {
           userConfig = userConfig || {};
           this.currentPlaceholderText = '';
           this.currentPlaceholdersIndex = 0;
           this.currentPlaceholderIndex = 0;
           this.isDeleting = false;
           this.timeout = undefined;
+          this.placeholders = placeholders;
+            debugger
 
           this.config = angular.copy(config);
           angular.extend(this.config, userConfig);
@@ -83,11 +82,6 @@ angular
           init: function () {
             if( !this.placeholders ) {
               throw new TypeError('[wb.inputHints] This instance of Ticker is missing Ticker.placeholders property.');
-            }
-            this.placeholders = this.placeholders.split(this.config.delimiter);
-
-            if( this.userConfig ) {
-              angular.extend(this.config, this.userConfig);
             }
 
             if( !this.onTick || typeof this.onTick !== 'function' ) {
