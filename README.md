@@ -15,9 +15,9 @@ $ bower install angular-input-hints --save
 ```
 ### Download
 
-[Minified version - 2.89 KB](https://github.com/williamboman/angular-input-hints/releases/download/v1.0.0/angular-input-hints.min.js)
+[Minified version - 2.82kB (exactly 1024 bytes gzipped :smirk:)](https://github.com/williamboman/angular-input-hints/releases/download/v2.0.0/angular-input-hints.min.js)
 
-[Regular version - 5.08 KB](https://github.com/williamboman/angular-input-hints/releases/download/v1.0.0/angular-input-hints.js)
+[Regular version - 5.01kB](https://github.com/williamboman/angular-input-hints/releases/download/v2.0.0/angular-input-hints.js)
 
 Then simply just include the JavaScript file in your document!
 
