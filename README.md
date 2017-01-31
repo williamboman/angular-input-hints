@@ -15,7 +15,7 @@ $ bower install angular-input-hints --save
 ```
 ### Download
 
-[Minified version - 2.82kB (exactly 1024 bytes gzipped :smirk:)](https://github.com/williamboman/angular-input-hints/releases/download/v2.0.0/angular-input-hints.min.js)
+[Minified version - 2.82kB (1kB gzipped)](https://github.com/williamboman/angular-input-hints/releases/download/v2.0.0/angular-input-hints.min.js)
 
 [Regular version - 5.01kB](https://github.com/williamboman/angular-input-hints/releases/download/v2.0.0/angular-input-hints.js)
 
