@@ -35,13 +35,8 @@ module.exports = function (grunt) {
           src: ['dist/**/*.js']
         }
       }
-    },
-
-    karma: {
-      unit: {
-        configFile: 'test/karma.conf.js'
-      }
     }
+
   });
 
   grunt.registerTask('build', [
@@ -50,7 +45,4 @@ module.exports = function (grunt) {
     'usebanner:dist'
   ]);
 
-  grunt.registerTask('test', [
-    'karma'
-  ]);
 };
