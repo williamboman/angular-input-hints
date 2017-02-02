@@ -32,7 +32,9 @@ angular.module('yourApp', [..., 'wb.inputHints']);
 To actually use it;
 
 ```html
-<input input-hints="Your first placeholder!|Your second placeholder.|And so on..">
+<input input-hints="['Your first placeholder!', 'Your second placeholder.', 'And so on..']" />
+<!-- or use variables in your scope -->
+<input input-hints="scopeVariable" />
 ```
 
 **Of course, you can add any other attribute to the input elements as you would do normally.**
